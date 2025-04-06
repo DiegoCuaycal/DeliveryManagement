@@ -1,0 +1,48 @@
+﻿@model DeliveryManagement.VehiculoRepartidor
+
+@{
+    ViewData["Title"] = "Eliminar Asignación de Vehículo";
+}
+
+<div class="min-vh-100 py-5" style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://thumbs.dreamstime.com/z/nahtlose-muster-der-pizza-mit-zutaten-und-lieferungen-gezogene-%C3%BCbergabe-nahrungsmittelgekritzel-isoliert-auf-wei%C3%9Fem-hintergrund-191909444.jpg'); background-size: cover;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-lg rounded-4">
+                    <div class="card-body p-4">
+                        <h1 class="h3 text-danger mb-4 text-center">
+                            <i class="bi bi-trash3-fill me-2"></i> Eliminar Asignación de Vehículo
+                        </h1>
+                        <h4 class="text-center">¿Estás seguro de que deseas eliminar esta asignación?</h4>
+                        <hr />
+                        <dl class="row">
+                            <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Id)</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+                            <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.RepartidorId)</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.RepartidorId)</dd>
+                            <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.VehiculoId)</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.VehiculoId)</dd>
+                        </dl>
+                        <form asp-action="DeleteConfirmed" method="post">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="d-flex justify-content-between">
+                                <a asp-action="Index" class="btn btn-outline-secondary">
+                                    <i class="bi bi-arrow-left-circle me-1"></i> Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="bi bi-trash3 me-1"></i> Eliminar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
